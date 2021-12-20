@@ -1,27 +1,3 @@
-<!-- <html>
-<head>
-    <title> Login Page </title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-    <div id ="frm">
-        <form action="login.php" method= "POST">
-                <h2>LOGIN</h2>
-                 <label> Email: </label>
-                 <input type="text" id="email" name="manager_email"/>
-
-                 <label> Password: </label>
-                 <input type="text" id="pass" name="manager_password"/>
-            
-            <button type="submit">Login</button>
-        </form>
-    </div>
-
-</body>
-</html> -->
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
