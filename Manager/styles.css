@@ -84,3 +84,27 @@ a {
 a:hover{
 	opacity: .7;
 }
+table{
+	width: 100%;
+}
+/* .add-user-btn{
+	float: left;
+	background: #555;
+	padding: 10px 15px;
+	color: #fff;
+	border-radius: 5px;
+	margin-right: -150px;
+	border: none;
+}
+.add-user-btn.hover{
+	opacity: .7;
+} */
+
+div.container {
+	width: auto;
+	height: auto;
+	border: 2px solid #ccc;
+	padding: 30px;
+	background: #fff;
+	border-radius: 15px;
+}
