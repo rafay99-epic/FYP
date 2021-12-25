@@ -11,13 +11,14 @@ if (isset($_SESSION['manager_name'])) {
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-     <h1>Hello, <?php echo $_SESSION['manager_name']; ?></h1>
-     <a href="logout.php">Logout</a>
-     <br>
-     <a href="signup.php">Add User</a>
-     <br>
-     <a href="display.php">View & Update User Data</a>
-
+     <div class="container">
+          <h1 class="home_heading" style="color: black;">Hello, <?php echo $_SESSION['manager_name']; ?></h1>
+          <a href="display.php">View & Update User Data</a>
+          <a href="view-status.php">View Parking Status</a>
+          <a href="logout.php">Logout</a>
+          <a href="signup.php">Add User</a>
+     </div>
+     
 </body>
 </html>
 
