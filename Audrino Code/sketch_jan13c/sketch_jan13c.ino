@@ -12,7 +12,7 @@ void setup() {
 }
 void loop() {
   
-Serial.print("IRSensorip1  ");
+Serial.print("Sensor 1: ");
 Serial.println(digitalRead(3));
 if(digitalRead(3)==0)
 {
@@ -24,7 +24,7 @@ if(digitalRead(3)==0)
      delay(10);
     }
 
-Serial.print("IRSensorip2  ");
+Serial.print("Sensor 2: ");
 Serial.println(digitalRead(5));
 if(digitalRead(5)==0)
 {
