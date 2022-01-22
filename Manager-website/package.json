@@ -1,0 +1,19 @@
+{
+  "name": "manager-website",
+  "version": "1.0.0",
+  "description": "A manager website that will controll the IOT hardware",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abdul Rafay & Saif Akhtar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "express-handler": "^0.2.0",
+    "mongoose": "^6.1.7",
+    "nodemon": "^2.0.15"
+  }
+}
