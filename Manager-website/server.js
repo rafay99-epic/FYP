@@ -13,12 +13,11 @@ require('./models/db')
 //creating an express connector for the the database connections 
 const express = require('express');
 //thdrd srr thr hsndel bar pathand it the middle man.
+const handlebars = require('handlebars')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 const path = require('path');
 const { engine } = require('express-handlebars');
-//var expressHandlebars = require('express-handlebars')
-//var {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 const bodyparser = require('body-parser');
-
 //this will request for the user controller 
 const userController = require('./controllers/userController');
 
@@ -31,7 +30,7 @@ app.use(bodyparser.urlencoded({
 
 app.use(bodyparser.json());
 app.set('views', path.join(__dirname, '/views/'));
-app.engine('hbs', engine({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layouts/' }));
+app.engine('hbs', engine({ extname: 'hbs', defaultLayout: 'mainLayout',handlebars: allowInsecurePrototypeAccess(handlebars),  layoutsDir: __dirname + '/views/layouts/' }));
 app.set('view engine', 'hbs');
 
 //this is the listen function and using this function the first paratmeter is the pot number and the second parameter is the callback functions 
