@@ -14,9 +14,9 @@ require('./models/db')
 const express = require('express');
 //thdrd srr thr hsndel bar pathand it the middle man.
 const path = require('path');
-// const express = require('express');
 const { engine } = require('express-handlebars');
-// const exphbs = require('express-handlebars');
+//var expressHandlebars = require('express-handlebars')
+//var {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 const bodyparser = require('body-parser');
 
 //this will request for the user controller 

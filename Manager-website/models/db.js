@@ -1,3 +1,14 @@
+//  ###############################################################################
+//  #                                                                             #
+//  #                      #### Mohammad Abdul Rafay   #####                      # 
+//  #                      #### 99marafay@gmail.com    #####                      #
+//  #                      #### Github: rafay99-epic   #####                      #
+//  #                      #### Database connection    #####                      #
+//  #                                                                             #
+//  ###############################################################################
+
+
+
 // This is a constant that will request for the db connection
 const mongoose = require('mongoose');
 
