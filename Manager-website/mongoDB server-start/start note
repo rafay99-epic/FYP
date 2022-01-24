@@ -1,0 +1,2 @@
+Once you have installed Mongo bd on your system then youu need to start the server the location of mongo bd can be different depending upone the device.
+The command must be run from the desktop and if not from desktop then the batch file will not run. so fun the batch or command from the desktop.
