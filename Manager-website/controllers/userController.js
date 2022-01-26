@@ -48,6 +48,7 @@ function insertRecord(req, res) {
         }
     });
 }
+//this is the validation part if all feild ae not set the website will show the error
 function handleValidationError(err, body) {
     for (field in err.errors) {
         switch (err.errors[field].path) {
@@ -69,6 +70,7 @@ function handleValidationError(err, body) {
     }
 }
 
+//this router will redirect to the userlist webpage
 router.get('/list', (req, res) => {
     User.find((err, docs) => {
         if (!err) {
@@ -77,9 +79,31 @@ router.get('/list', (req, res) => {
             });
         }
         else {
-            console.log('Error in retrieving employee list :' + err);
+            console.log('Error in retrieving user list :' + err);
         }
     });
 });
+//this router will get the user Id from the mongodb
+router.get('/:id', (req, res) => {
+    User.findById(req.params.id, (err, doc) => {
+        if (!err) {
+            res.render("user/addOrEdit", {
+                viewTitle: "Update User Data",
+                users: doc
+            });
+        }
+    });
+});
+
+//this router will delete the user
+router.get('/delete/:id', (req, res) => {
+    User.findByIdAndRemove(req.params.id, (err, doc) => {
+        if (!err) {
+            res.redirect('/user/list');
+        }
+        else { console.log('Error in user delete :' + err); }
+    });
+});
+
 
 module.exports = router;

@@ -7,6 +7,9 @@
 //  #                                                                             #
 //  ###############################################################################
 
+
+//This is the part of the ser that will help for the curd operation for the website
+
 //This is the connection and request connection from mongo db
 require('./models/db')
 
@@ -20,6 +23,7 @@ const { engine } = require('express-handlebars');
 const bodyparser = require('body-parser');
 //this will request for the user controller 
 const userController = require('./controllers/userController');
+// const managerController = require('./controllers/managerController');
 
 //The app variable will store the connections for express connections
 var app = express();
@@ -38,6 +42,51 @@ app.listen(3000 , () => {
     console.log("Express Server started at port 3000");
 });
 
-//this will use or call the user controller
+//this will use or call the user controller and manager controller
 app.use('/user',userController);
+//  app.use('/manager',managerController);
 
+//This part of the server will help to connect to the audrino board UNO
+// var http = require('http');
+// var fs = require('fs');
+// var index = fs.readFileSync( 'index.html');
+
+// var SerialPort = require('serialport');
+// const parsers = SerialPort.parsers;
+
+// const parser = new parsers.Readline({
+//   delimiter: '\r\n'
+// });
+
+// //In the server pot we aill enter the server link to my Pc which I don't know how to yet!!
+// var port = new SerialPort('',{ 
+//   baudRate: 9600,
+//   dataBits: 8,
+//   parity: 'none',
+//   stopBits: 1,
+//   flowControl: false
+// });
+
+// port.pipe(parser);
+
+// var app = http.createServer(function(req, res) {
+//   res.writeHead(200, {'Content-Type': 'text/html'});
+//   res.end(index);
+// });
+
+// var io = require('socket.io').listen(app);
+
+// io.on('connection', function(socket) {
+    
+//   console.log('Node is listening to port');
+    
+// });
+
+// parser.on('data', function(data) {
+    
+//   console.log('Received data from port: ' + data);
+//   io.emit('data', data);
+    
+// });
+
+// app.listen(3000);
