@@ -1,26 +1,192 @@
-<h3><a class="btn btn-secondary" href="/user"><i class="fa fa-plus"></i> Create New</a> User List</h3>
-<table class="table table-striped">
+<style>
+    @charset "UTF-8";
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+    body {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 300;
+        line-height: 1.42em;
+        color: #a7a1ae;
+        background-color: #1f2739;
+    }
+
+    h1 {
+        font-size: 3em;
+        font-weight:
+            300;
+        line-height: 1em;
+        text-align: center;
+        color: #4dc3fa;
+    }
+
+    h2 {
+        font-size:
+            1em;
+        font-weight: 300;
+        text-align: center;
+        display: block;
+        line-height: 1em;
+        padding-bottom: 2em;
+        color: #fb667a;
+    }
+
+    h2 a {
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #fb667a;
+        text-decoration: none;
+    }
+
+    .blue {
+        color: #185875;
+    }
+
+    .yellow {
+        color: #fff842;
+    }
+
+    .container th h1 {
+        font-weight:
+            bold;
+        font-size: 1em;
+        text-align: left;
+        color: #185875;
+    }
+
+    .container td {
+        font-weight: normal;
+        font-size: 1em;
+        -webkit-box-shadow: 0 2px 2px -2px #0e1119;
+        -moz-box-shadow: 0 2px 2px -2px #0e1119;
+        box-shadow: 0 2px 2px -2px #0e1119;
+    }
+
+    .container {
+        text-align: left;
+        overflow: hidden;
+        width: 100%;
+        margin: 0 auto;
+        display: table;
+        padding: 0 0 8em 0;
+    }
+
+    .container td,
+    .container th {
+        padding-bottom: 2%;
+        padding-top: 2%;
+        padding-left: 2%;
+    }
+
+    /*
+  Background-color of the odd rows */
+    .container tr:nth-child(odd) {
+        background-color: #323c50;
+    }
+
+    /* Background-color of the even rows */
+    .container tr:nth-child(even) {
+        background-color: #2c3446;
+    }
+
+    .container th {
+        background-color: #1f2739;
+    }
+
+    .container td:first-child {
+        color: #fb667a;
+    }
+
+    @media (max-width: 800px) {
+
+        .container td:nth-child(4),
+        .container th:nth-child(4) {
+            display: none;
+        }
+    }
+</style>
+
+<table class="container">
+
     <thead>
+
         <tr>
-            <th>Full Name</th>
+            <th>Name</th>
             <th>Email</th>
             <th>Password</th>
             <th>Date of Birth</th>
             <th></th>
+            <th><a href="/user" class="btn btn-primary btn-sm fa fa-plus" data-bs-toggle="modal"
+                    data-bs-target="#AddUserDetails"> Add User</a>
+            </th>
         </tr>
     </thead>
     <tbody>
         {{#each list}}
         <tr>
-            <td>{{this.fullName}}</td>
-            <td>{{this.email}}</td>
-            <td>{{this.password}}</td>
-            <td>{{this.Date_of_birth}}</td>
+            <td>{{fullName}}</td>
+            <td>{{email}}</td>
+            <td>{{password}}</td>
+            <td>{{Date_of_birth}}</td>
             <td>
-                <a href="/user/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
-                <a href="/user/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                <a href="/user/{{this._id}}"><i class="far fa-edit fa-lg" aria-hidden="true"></i></a>
+
+            </td>
+            <td>
+                <a href="/user/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i
+                        class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
             </td>
         </tr>
         {{/each}}
     </tbody>
 </table>
+
+<!-- User Details Add Modal -->
+<div class="modal fade" id="AddUserDetails" tabindex="-1" aria-labelledby="AddUserDetailsLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="AddUserDetailsLabel">Enter Details To Add</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form action="/user" method="POST" autocomplete="off">
+                    <input type="hidden" name="_id" value="{{user._id}}" />
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" class="form-control" name="fullName" placeholder="Full Name"
+                            value="{{User.fullName}}" />
+                        <div class="text-danger">
+                            {{user.fullNameError}}</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" name="email" placeholder="Email"
+                            value="{{User.email}}" />
+                        <div class="text-danger">
+                            {{user.emailError}}</div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="password"
+                                value="{{User.password}}" />
+                            <div class="text-danger">
+                                {{user.passwordError}}</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Date of Birth</label>
+                            <input type="Date" class="form-control" name="Date_of_birth" placeholder="Date_of_birth"
+                                value="{{User.Date_of_birth}}" />
+                            <div class="text-danger">
+                                {{user.Date_of_birthError}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success fa fa-paper-plane float-right"> Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
