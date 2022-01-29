@@ -32,6 +32,9 @@ app.use(bodyparser.urlencoded({
     extended: true
 }));
 
+app.get("/", (req, res) => {
+  res.redirect("/user/list");
+});
 app.use(bodyparser.json());
 app.set('views', path.join(__dirname, '/views/'));
 app.engine('hbs', engine({ extname: 'hbs', defaultLayout: 'mainLayout',handlebars: allowInsecurePrototypeAccess(handlebars),  layoutsDir: __dirname + '/views/layouts/' }));
