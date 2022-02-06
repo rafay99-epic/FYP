@@ -9,10 +9,7 @@
   "author": "Abdul Rafay &Saif Akhtar",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2",
-    "handlebars": "^4.7.7",
     "johnny-five": "^2.1.0",
-    "serialport": "^9.2.8",
-    "socket.io": "^4.4.1"
+    "keypress": "^0.2.1"
   }
 }
